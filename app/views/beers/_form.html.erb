@@ -1,0 +1,39 @@
+<% if beer.errors.any?%>
+  <ul>
+  <% beer.errors.full_messages.each do |error|%>
+<li><%= error %></li>
+<% end %>
+  </ul>
+<% end %>
+<div class='row'>
+<div class="col-md-6 offset-md-3">
+<%= form_with(model: beer, local:true) do |f|%>
+<div class= "form-group">
+<%= f.label :name %>
+<%= f.text_field :name, class: 'form-control'%>
+</div>
+<br>
+<div class= "form-check">
+<%= f.check_box :available, class: 'form-check-input' %>
+<%= f.label :available, class: 'form-check-label', for:'available'%>
+</div>
+<br>
+<div class= "form-group">
+<%= f.label :price %>
+<%= f.number_field :price, class: 'form-control' %>
+</div>
+<br>
+<div class= "form-group">
+<%= f.label :picture %>
+<%= f.text_field :picture, class: 'form-control' %>
+</div>
+<br>
+<div class= "form-group">
+<%= f.label :description %>
+<%= f.text_area :description, class: 'form-control' %>
+</div>
+<br>
+<%= f.submit class: 'btn btn-info btn-block'%>
+<% end %>
+ </div>
+</div>
